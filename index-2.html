@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>أريام مساعد | محللة نظم معلومات إدارية وعمليات مالية</title>
+<meta name="description" content="أريام مساعد — محللة نظم معلومات إدارية وأخصائية عمليات مالية. نمذجة مالية، تحليل استثماري، مؤشرات أداء، وتصميم أنظمة الأعمال.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ===== The Year of the Camel — خط عام الإبل ===== */
+  @font-face{font-family:'Camel';src:url('https://cdn.jsdelivr.net/gh/mokhtarbsaid/rare-arabic-fonts/theyearofthecamel/theyearofthecamel-extralight.otf') format('opentype');font-weight:300;font-display:swap}
+  @font-face{font-family:'Camel';src:url('https://cdn.jsdelivr.net/gh/mokhtarbsaid/rare-arabic-fonts/theyearofthecamel/theyearofthecamel-regular.otf') format('opentype');font-weight:400;font-display:swap}
+  @font-face{font-family:'Camel';src:url('https://cdn.jsdelivr.net/gh/mokhtarbsaid/rare-arabic-fonts/theyearofthecamel/theyearofthecamel-medium.otf') format('opentype');font-weight:500;font-display:swap}
+  @font-face{font-family:'Camel';src:url('https://cdn.jsdelivr.net/gh/mokhtarbsaid/rare-arabic-fonts/theyearofthecamel/theyearofthecamel-bold.otf') format('opentype');font-weight:700;font-display:swap}
+
+  /* ===== 4 ألوان فقط ===== */
+  :root{
+    --ink:#0B1033;      /* نيلي غامق */
+    --blue:#2F5BD6;     /* أزرق ملكي */
+    --violet:#8B6BF0;   /* بنفسجي */
+    --mist:#EEF0FC;     /* رمادي بنفسجي فاتح */
+
+    --f: 'Camel', 'IBM Plex Sans Arabic', system-ui, sans-serif;
+    --pad: clamp(1.15rem, 5vw, 5.5rem);
+    --max: 1160px;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--ink);color:var(--mist);
+    font-family:var(--f);font-weight:400;line-height:1.8;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;
+  }
+  .wrap{max-width:var(--max);margin-inline:auto;padding-inline:var(--pad)}
+  section{padding-block:clamp(3.5rem,8vw,7rem);position:relative}
+  a{color:inherit}
+  :focus-visible{outline:2px solid var(--violet);outline-offset:3px}
+
+  .eyebrow{
+    font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;font-weight:500;
+    color:var(--violet);display:flex;align-items:center;gap:.8rem;margin-bottom:1.5rem;
+  }
+  .eyebrow::after{content:"";flex:1;height:1px;background:linear-gradient(to left,transparent,rgba(139,107,240,.45))}
+  html[dir="ltr"] .eyebrow::after{background:linear-gradient(to right,transparent,rgba(139,107,240,.45))}
+  h2.t{font-size:clamp(1.6rem,3.6vw,2.5rem);font-weight:700;line-height:1.3;margin-bottom:.9rem}
+  .lead{color:rgba(238,240,252,.62);max-width:64ch;font-size:1rem;font-weight:300}
+  .num{font-variant-numeric:tabular-nums;direction:ltr;unicode-bidi:isolate;display:inline-block}
+
+  /* ===== NAV ===== */
+  nav{position:sticky;top:0;z-index:60;background:rgba(11,16,51,.86);backdrop-filter:blur(16px);
+      border-bottom:1px solid rgba(238,240,252,.1)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;gap:1rem;
+    padding-block:.85rem;max-width:var(--max);margin-inline:auto;padding-inline:var(--pad)}
+  .mark{display:flex;align-items:center;gap:.6rem;text-decoration:none;font-weight:700;letter-spacing:.04em;font-size:.95rem}
+  .mark .glyph{width:26px;height:26px;border-radius:8px;flex:none;
+    background:linear-gradient(135deg,var(--blue),var(--violet));
+    display:grid;place-items:center;font-size:.72rem;font-weight:700;color:#fff}
+  .nav-links{display:flex;gap:1.7rem;list-style:none}
+  .nav-links a{color:rgba(238,240,252,.65);text-decoration:none;font-size:.88rem;font-weight:400;transition:color .25s}
+  .nav-links a:hover{color:var(--violet)}
+  .lang{font-size:.75rem;font-weight:500;letter-spacing:.1em;background:transparent;
+    border:1px solid rgba(238,240,252,.24);color:var(--mist);padding:.42rem .85rem;border-radius:999px;cursor:pointer;
+    font-family:var(--f);transition:.25s}
+  .lang:hover{border-color:var(--violet);color:var(--violet)}
+  @media(max-width:860px){.nav-links{display:none}}
+
+  /* ===== HERO ===== */
+  .hero{padding-block:clamp(3rem,7vw,5.5rem) clamp(2.5rem,5vw,4rem);overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:0;
+    background:
+      radial-gradient(46rem 28rem at 82% 4%, rgba(139,107,240,.20), transparent 60%),
+      radial-gradient(40rem 26rem at 8% 60%, rgba(47,91,214,.16), transparent 62%);}
+  html[dir="ltr"] .hero::before{
+    background:
+      radial-gradient(46rem 28rem at 18% 4%, rgba(139,107,240,.20), transparent 60%),
+      radial-gradient(40rem 26rem at 92% 60%, rgba(47,91,214,.16), transparent 62%);}
+  .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr auto;
+    gap:clamp(2rem,5vw,4.5rem);align-items:center}
+  @media(max-width:900px){.hero-grid{grid-template-columns:1fr;justify-items:center;text-align:center}
+    .hero-grid .cta-row{justify-content:center}.hero-sub{margin-inline:auto}}
+
+  h1{font-size:clamp(1.95rem,5.4vw,3.5rem);font-weight:700;line-height:1.18;letter-spacing:-.01em;margin-block:.5rem 1rem}
+  h1 .grad{background:linear-gradient(120deg,var(--blue),var(--violet));
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+  .role{font-size:clamp(.95rem,1.9vw,1.12rem);font-weight:500;color:var(--violet);letter-spacing:.02em}
+  .hero-sub{color:rgba(238,240,252,.66);font-size:1.02rem;font-weight:300;max-width:50ch;margin-bottom:2rem}
+  .cta-row{display:flex;flex-wrap:wrap;gap:.75rem}
+  .btn{display:inline-flex;align-items:center;gap:.5rem;text-decoration:none;font-family:var(--f);
+    font-size:.9rem;font-weight:500;padding:.78rem 1.6rem;border-radius:999px;transition:.28s;border:1px solid transparent}
+  .btn-solid{background:linear-gradient(120deg,var(--blue),var(--violet));color:#fff}
+  .btn-solid:hover{filter:brightness(1.14);transform:translateY(-2px)}
+  .btn-ghost{border-color:rgba(238,240,252,.26);color:var(--mist)}
+  .btn-ghost:hover{border-color:var(--violet);color:var(--violet)}
+
+  /* --- الصورة الدائرية + حلقة البيانات --- */
+  .avatar{position:relative;width:clamp(210px,25vw,310px);aspect-ratio:1;flex:none;display:grid;place-items:center}
+  .avatar .ring{position:absolute;inset:0;border-radius:50%;
+    background:conic-gradient(from 0deg,var(--blue),var(--violet),var(--blue));
+    -webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 3px),#000 calc(100% - 3px));
+    mask:radial-gradient(farthest-side,transparent calc(100% - 3px),#000 calc(100% - 3px));
+    animation:spin 14s linear infinite}
+  .avatar .ring2{position:absolute;inset:-16px;border-radius:50%;border:1px dashed rgba(139,107,240,.35);
+    animation:spin 40s linear infinite reverse}
+  .avatar .node{position:absolute;width:9px;height:9px;border-radius:50%;background:var(--violet);
+    box-shadow:0 0 0 4px rgba(139,107,240,.18)}
+  .avatar .n1{top:-4px;inset-inline-start:50%;transform:translateX(-50%)}
+  .avatar .n2{bottom:8%;inset-inline-start:2%;background:var(--blue);box-shadow:0 0 0 4px rgba(47,91,214,.18)}
+  .avatar .n3{bottom:8%;inset-inline-end:2%}
+  .avatar img{width:calc(100% - 18px);height:calc(100% - 18px);border-radius:50%;object-fit:cover;
+    object-position:50% 5%;display:block;position:relative;z-index:1}
+  @keyframes spin{to{transform:rotate(360deg)}}
+
+  /* ===== شريط الأرقام ===== */
+  .strip{border-block:1px solid rgba(238,240,252,.1);background:rgba(47,91,214,.07)}
+  .strip-in{display:grid;grid-template-columns:repeat(4,1fr);max-width:var(--max);margin-inline:auto;padding-inline:var(--pad)}
+  .stat{padding:1.7rem 1.4rem;border-inline-start:1px solid rgba(238,240,252,.1)}
+  .stat:first-child{border-inline-start:0;padding-inline-start:0}
+  .stat b{display:block;font-size:clamp(1.3rem,2.6vw,1.85rem);font-weight:700;letter-spacing:-.01em;
+    background:linear-gradient(120deg,var(--blue),var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .stat span{font-size:.78rem;font-weight:300;color:rgba(238,240,252,.6);line-height:1.5;display:block;margin-top:.15rem}
+  @media(max-width:780px){.strip-in{grid-template-columns:1fr 1fr}
+    .stat{border-block-end:1px solid rgba(238,240,252,.1)}
+    .stat:nth-child(odd){border-inline-start:0;padding-inline-start:0}}
+
+  /* ===== ABOUT ===== */
+  .about{display:grid;grid-template-columns:.5fr 1fr;gap:clamp(1.4rem,5vw,4rem)}
+  @media(max-width:840px){.about{grid-template-columns:1fr}}
+  .about p{color:rgba(238,240,252,.72);font-weight:300;margin-bottom:1.05rem;max-width:66ch}
+  .facts{list-style:none;margin-top:1.9rem;border-top:1px solid rgba(238,240,252,.12)}
+  .facts li{display:flex;gap:1rem;justify-content:space-between;align-items:flex-start;
+    padding-block:.8rem;border-bottom:1px solid rgba(238,240,252,.12);font-size:.9rem}
+  .facts li>span:first-child{color:var(--violet);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+    font-weight:500;flex:none;padding-top:.3rem;min-width:6.5rem}
+  .facts li>span:last-child{text-align:end;font-weight:300;color:rgba(238,240,252,.86)}
+
+  /* ===== CAPABILITIES ===== */
+  .caps{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1px;
+    background:rgba(238,240,252,.12);border:1px solid rgba(238,240,252,.12);border-radius:14px;overflow:hidden;margin-top:2.2rem}
+  .cap{background:var(--ink);padding:1.8rem 1.5rem;transition:background .3s}
+  .cap:hover{background:rgba(47,91,214,.1)}
+  .cap .ic{width:34px;height:34px;border-radius:10px;background:rgba(139,107,240,.14);
+    display:grid;place-items:center;margin-bottom:.9rem}
+  .cap .ic svg{width:18px;height:18px;stroke:var(--violet);fill:none;stroke-width:1.6}
+  .cap h3{font-size:1rem;font-weight:700;margin-bottom:.75rem}
+  .cap ul{list-style:none}
+  .cap li{color:rgba(238,240,252,.62);font-size:.86rem;font-weight:300;padding-block:.24rem;
+    padding-inline-start:.95rem;position:relative;line-height:1.65}
+  .cap li::before{content:"";position:absolute;inset-inline-start:0;top:.92em;width:5px;height:1.5px;background:var(--blue)}
+
+  /* ===== WORK ===== */
+  .nda{display:flex;gap:.7rem;align-items:flex-start;margin-top:1.6rem;padding:.85rem 1.1rem;
+    border:1px solid rgba(139,107,240,.32);border-radius:10px;background:rgba(139,107,240,.07);
+    font-size:.82rem;font-weight:300;color:rgba(238,240,252,.72);max-width:70ch}
+  .nda svg{width:16px;height:16px;stroke:var(--violet);fill:none;stroke-width:1.7;flex:none;margin-top:.35rem}
+
+  .work{display:grid;gap:1px;background:rgba(238,240,252,.12);border:1px solid rgba(238,240,252,.12);
+    border-radius:14px;overflow:hidden;margin-top:2rem}
+  .item{background:var(--ink);padding:1.9rem clamp(1.2rem,3vw,2.2rem);
+    display:grid;grid-template-columns:96px 1fr;gap:clamp(1.1rem,3vw,2.2rem);align-items:start;transition:background .3s}
+  .item:hover{background:rgba(47,91,214,.09)}
+  @media(max-width:720px){.item{grid-template-columns:1fr;gap:1rem}}
+  .viz{width:96px;height:74px;border-radius:10px;background:rgba(47,91,214,.12);
+    border:1px solid rgba(238,240,252,.1);display:grid;place-items:center}
+  .viz svg{width:52px;height:40px}
+  .item h3{font-size:1.05rem;font-weight:700;margin-bottom:.5rem;line-height:1.4}
+  .item p{color:rgba(238,240,252,.66);font-size:.9rem;font-weight:300;max-width:64ch}
+  .tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.9rem}
+  .tag{font-size:.72rem;font-weight:400;padding:.24rem .7rem;border-radius:999px;
+    border:1px solid rgba(139,107,240,.32);color:rgba(238,240,252,.72);white-space:nowrap}
+
+  /* ===== EDUCATION ===== */
+  .edu{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;margin-top:2.2rem}
+  @media(max-width:760px){.edu{grid-template-columns:1fr}}
+  .card{border:1px solid rgba(238,240,252,.14);border-radius:14px;padding:1.7rem 1.5rem;
+    background:linear-gradient(160deg,rgba(47,91,214,.09),transparent)}
+  .card .yr{font-size:.74rem;letter-spacing:.14em;color:var(--violet);font-weight:500;margin-bottom:.5rem}
+  .card h3{font-size:1.02rem;font-weight:700;margin-bottom:.35rem}
+  .card .org{font-size:.86rem;color:rgba(238,240,252,.6);font-weight:300;margin-bottom:.8rem}
+  .card p{font-size:.87rem;color:rgba(238,240,252,.66);font-weight:300}
+
+  /* ===== CONTACT ===== */
+  .cts{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:.9rem;margin-top:2.2rem}
+  .ct{border:1px solid rgba(238,240,252,.16);border-radius:12px;padding:1.25rem 1.35rem;
+    text-decoration:none;display:block;transition:.28s}
+  .ct:hover{border-color:var(--violet);background:rgba(139,107,240,.09);transform:translateY(-2px)}
+  .ct span{display:block;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--violet);font-weight:500;margin-bottom:.35rem}
+  .ct b{display:block;font-weight:400;font-size:.92rem;word-break:break-word;direction:ltr;text-align:start}
+  html[dir="rtl"] .ct b{text-align:right}
+
+  footer{border-top:1px solid rgba(238,240,252,.12);padding-block:1.9rem}
+  .foot{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+    max-width:var(--max);margin-inline:auto;padding-inline:var(--pad);
+    font-size:.78rem;font-weight:300;color:rgba(238,240,252,.45)}
+
+  /* ===== MOTION ===== */
+  .rv{opacity:0;transform:translateY(20px);transition:opacity .75s ease,transform .75s ease}
+  .rv.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){
+    .rv{opacity:1;transform:none;transition:none}
+    .avatar .ring,.avatar .ring2{animation:none}
+    html{scroll-behavior:auto}
+    .btn:hover,.ct:hover{transform:none}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <a href="#top" class="mark"><span class="glyph">أم</span><span data-ar="أريام مساعد" data-en="Aryam Mosaed">أريام مساعد</span></a>
+    <ul class="nav-links">
+      <li><a href="#about" data-ar="نبذة" data-en="About">نبذة</a></li>
+      <li><a href="#caps" data-ar="القدرات" data-en="Capabilities">القدرات</a></li>
+      <li><a href="#work" data-ar="الخبرة" data-en="Experience">الخبرة</a></li>
+      <li><a href="#edu" data-ar="التعليم" data-en="Education">التعليم</a></li>
+      <li><a href="#contact" data-ar="تواصل" data-en="Contact">تواصل</a></li>
+    </ul>
+    <button class="lang" id="langBtn">EN</button>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="role" data-ar="محللة نظم معلومات إدارية · أخصائية عمليات مالية" data-en="MIS Analyst · Financial Operations Specialist">محللة نظم معلومات إدارية · أخصائية عمليات مالية</p>
+      <h1 data-ar="أبني الأنظمة التي تتحول فيها <span class='grad'>البيانات</span> إلى قرار مالي." data-en="I build the systems where <span class='grad'>data</span> becomes a financial decision.">أبني الأنظمة التي تتحول فيها <span class="grad">البيانات</span> إلى قرار مالي.</h1>
+      <p class="hero-sub" data-ar="نمذجة مالية، تحليل استثماري، مؤشرات أداء، وتصميم أنظمة أعمال من الصفر — بالعربية والإنجليزية، من المنطقة الشرقية." data-en="Financial modeling, investment analysis, KPI reporting, and business systems built from the ground up — in Arabic and English, from Saudi Arabia's Eastern Province.">نمذجة مالية، تحليل استثماري، مؤشرات أداء، وتصميم أنظمة أعمال من الصفر — بالعربية والإنجليزية، من المنطقة الشرقية.</p>
+      <div class="cta-row">
+        <a class="btn btn-solid" href="Aryam_Mosaed_CV.pdf" download data-ar="تحميل السيرة الذاتية" data-en="Download CV">تحميل السيرة الذاتية</a>
+        <a class="btn btn-ghost" href="#work" data-ar="استعراض الخبرة" data-en="View experience">استعراض الخبرة</a>
+      </div>
+    </div>
+    <div class="avatar">
+      <span class="ring"></span>
+      <span class="ring2"></span>
+      <img src="aryam.jpg" alt="أريام مساعد">
+      <span class="node n1"></span><span class="node n2"></span><span class="node n3"></span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STATS ================= -->
+<div class="strip">
+  <div class="strip-in">
+    <div class="stat"><b class="num">12% → 22.2%</b><span data-ar="تحسين هامش الربحية المتوقع" data-en="Projected profitability margin lift">تحسين هامش الربحية المتوقع</span></div>
+    <div class="stat"><b class="num">SAR 30M+</b><span data-ar="حجم المشاريع المدعومة تخطيطًا وتمويلًا" data-en="Scale of projects supported">حجم المشاريع المدعومة تخطيطًا وتمويلًا</span></div>
+    <div class="stat"><b class="num">80+</b><span data-ar="مستندًا ونظامًا مؤسسيًا تم توحيده" data-en="Business documents &amp; systems standardized">مستندًا ونظامًا مؤسسيًا تم توحيده</span></div>
+    <div class="stat"><b class="num">AR · EN</b><span data-ar="عربية أمًا · إنجليزية متقدمة C1" data-en="Arabic native · English C1">عربية أمًا · إنجليزية متقدمة C1</span></div>
+  </div>
+</div>
+
+<!-- ================= ABOUT ================= -->
+<section id="about">
+  <div class="wrap about rv">
+    <div>
+      <div class="eyebrow"><span data-ar="نبذة" data-en="About">نبذة</span></div>
+      <h2 class="t" data-ar="بين النظام والقرار" data-en="Between the system and the decision">بين النظام والقرار</h2>
+    </div>
+    <div>
+      <p data-ar="أنا أريام مساعد، خريجة بكالوريوس نظم المعلومات الإدارية من كلية الجبيل الصناعية، وأعمل محللة نظم معلومات وأخصائية عمليات مالية في تصميم ستوديو بالخبر." data-en="I'm Aryam Mosaed, a Management Information Systems graduate of Jubail Industrial College, working as an MIS Analyst and Financial Operations Specialist at Tasmeem Studio in Al-Khobar.">أنا أريام مساعد، خريجة بكالوريوس نظم المعلومات الإدارية من كلية الجبيل الصناعية، وأعمل محللة نظم معلومات وأخصائية عمليات مالية في تصميم ستوديو بالخبر.</p>
+      <p data-ar="تخصصي يقع في المنطقة التي تلتقي فيها التقنية بالمال: نموذج مالي يحدد جدوى المشروع، قاعدة بيانات منظّمة تحفظ الحقيقة، لوحة مؤشرات تكشف أين تتسرب التكلفة، ومستند إداري يجعل كل ذلك مفهومًا لمن يوقّع القرار." data-en="My work sits where technology meets finance: a financial model that tests whether a project stands up, a well-structured database that keeps the truth in one place, a KPI view that shows where cost is leaking, and a document that makes all of it legible to whoever signs off.">تخصصي يقع في المنطقة التي تلتقي فيها التقنية بالمال: نموذج مالي يحدد جدوى المشروع، قاعدة بيانات منظّمة تحفظ الحقيقة، لوحة مؤشرات تكشف أين تتسرب التكلفة، ومستند إداري يجعل كل ذلك مفهومًا لمن يوقّع القرار.</p>
+      <p data-ar="أعمل على تحويل الاحتياجات التشغيلية الغامضة إلى أنظمة منظّمة وقابلة للتوسع، وأبني كل ما أسلّمه ليكون جاهزًا للعرض على الإدارة العليا لا مسودة تحتاج تجميل." data-en="I turn ambiguous operational needs into structured, scalable systems, and I build every deliverable to be ready for the executive table rather than a draft that still needs polishing.">أعمل على تحويل الاحتياجات التشغيلية الغامضة إلى أنظمة منظّمة وقابلة للتوسع، وأبني كل ما أسلّمه ليكون جاهزًا للعرض على الإدارة العليا لا مسودة تحتاج تجميل.</p>
+      <ul class="facts">
+        <li><span data-ar="التخصص" data-en="Focus">التخصص</span><span data-ar="نظم المعلومات الإدارية · التحليل المالي · قواعد البيانات" data-en="Management Information Systems · Financial Analysis · Databases">نظم المعلومات الإدارية · التحليل المالي · قواعد البيانات</span></li>
+        <li><span data-ar="المؤهل" data-en="Degree">المؤهل</span><span data-ar="بكالوريوس نظم المعلومات الإدارية — كلية الجبيل الصناعية" data-en="B.Sc. Management Information Systems — Jubail Industrial College">بكالوريوس نظم المعلومات الإدارية — كلية الجبيل الصناعية</span></li>
+        <li><span data-ar="الموقع" data-en="Based in">الموقع</span><span data-ar="المنطقة الشرقية — المملكة العربية السعودية" data-en="Eastern Province — Saudi Arabia">المنطقة الشرقية — المملكة العربية السعودية</span></li>
+        <li><span data-ar="اللغات" data-en="Languages">اللغات</span><span data-ar="العربية (اللغة الأم) · الإنجليزية (متقدمة C1)" data-en="Arabic (native) · English (Advanced C1)">العربية (اللغة الأم) · الإنجليزية (متقدمة C1)</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CAPABILITIES ================= -->
+<section id="caps">
+  <div class="wrap rv">
+    <div class="eyebrow"><span data-ar="القدرات" data-en="Capabilities">القدرات</span></div>
+    <h2 class="t" data-ar="أربعة مجالات أعمل فيها" data-en="Four areas I work in">أربعة مجالات أعمل فيها</h2>
+    <p class="lead" data-ar="من النموذج المالي الذي يقنع المستثمر، إلى قاعدة البيانات التي تشغّل العملية اليومية." data-en="From the financial model that convinces an investor, to the database that runs the daily operation.">من النموذج المالي الذي يقنع المستثمر، إلى قاعدة البيانات التي تشغّل العملية اليومية.</p>
+
+    <div class="caps">
+      <div class="cap">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 20h18M6 16V9m5 7V5m5 11v-6"/></svg></div>
+        <h3 data-ar="التحليل المالي والاستثماري" data-en="Financial &amp; Investment Analysis">التحليل المالي والاستثماري</h3>
+        <ul>
+          <li data-ar="التحليل والتنبؤ المالي" data-en="Financial analysis &amp; forecasting">التحليل والتنبؤ المالي</li>
+          <li data-ar="إعداد الموازنات وتحليل التكلفة" data-en="Budgeting &amp; cost analysis">إعداد الموازنات وتحليل التكلفة</li>
+          <li data-ar="دراسات الجدوى الاقتصادية" data-en="Feasibility studies">دراسات الجدوى الاقتصادية</li>
+          <li data-ar="التحليل الاستثماري وتقييم الفرص" data-en="Investment analysis">التحليل الاستثماري وتقييم الفرص</li>
+          <li data-ar="استراتيجية التسعير وتحليل الجدوى والتكلفة" data-en="Pricing strategy &amp; cost-benefit analysis">استراتيجية التسعير وتحليل الجدوى والتكلفة</li>
+        </ul>
+      </div>
+      <div class="cap">
+        <div class="ic"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3"/></svg></div>
+        <h3 data-ar="الأنظمة وقواعد البيانات" data-en="Systems &amp; Databases">الأنظمة وقواعد البيانات</h3>
+        <ul>
+          <li data-ar="تحليل وتصميم النظم (SDLC)" data-en="System analysis &amp; design (SDLC)">تحليل وتصميم النظم (SDLC)</li>
+          <li data-ar="تصميم وإدارة قواعد البيانات — MySQL و SQL" data-en="Database design &amp; management — MySQL, SQL">تصميم وإدارة قواعد البيانات — MySQL و SQL</li>
+          <li data-ar="نمذجة العلاقات والكيانات (ERD)" data-en="Entity-relationship modeling (ERD)">نمذجة العلاقات والكيانات (ERD)</li>
+          <li data-ar="أنظمة تخطيط موارد المؤسسات (ERP)" data-en="Enterprise resource planning (ERP)">أنظمة تخطيط موارد المؤسسات (ERP)</li>
+          <li data-ar="جمع المتطلبات وتوثيق النظام" data-en="Requirements gathering &amp; documentation">جمع المتطلبات وتوثيق النظام</li>
+        </ul>
+      </div>
+      <div class="cap">
+        <div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="5" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="10" width="8" height="11" rx="1.5"/></svg></div>
+        <h3 data-ar="المؤشرات ولوحات المتابعة" data-en="KPIs &amp; Dashboards">المؤشرات ولوحات المتابعة</h3>
+        <ul>
+          <li data-ar="تصميم مؤشرات الأداء وتتبعها" data-en="KPI design &amp; tracking">تصميم مؤشرات الأداء وتتبعها</li>
+          <li data-ar="بناء لوحات المتابعة وأنظمة التقارير" data-en="Dashboard development &amp; reporting systems">بناء لوحات المتابعة وأنظمة التقارير</li>
+          <li data-ar="تقارير الأداء للإدارة التنفيذية" data-en="Executive performance reporting">تقارير الأداء للإدارة التنفيذية</li>
+          <li data-ar="Microsoft Excel (متقدم)" data-en="Microsoft Excel (Advanced)">Microsoft Excel (متقدم)</li>
+          <li data-ar="Google Workspace" data-en="Google Workspace">Google Workspace</li>
+        </ul>
+      </div>
+      <div class="cap">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/><circle cx="18.5" cy="18" r="2.5"/></svg></div>
+        <h3 data-ar="العمليات والإدارة" data-en="Operations &amp; Management">العمليات والإدارة</h3>
+        <ul>
+          <li data-ar="تحسين العمليات وإدارة سير العمل" data-en="Process optimization &amp; workflow management">تحسين العمليات وإدارة سير العمل</li>
+          <li data-ar="تنسيق المشاريع ودعم مكتب إدارة المشاريع" data-en="Project coordination &amp; PMO support">تنسيق المشاريع ودعم مكتب إدارة المشاريع</li>
+          <li data-ar="أنظمة الموارد البشرية وتتبع الموظفين" data-en="HR systems &amp; employee tracking">أنظمة الموارد البشرية وتتبع الموظفين</li>
+          <li data-ar="توحيد مستندات الأعمال" data-en="Business document standardization">توحيد مستندات الأعمال</li>
+          <li data-ar="التخطيط الاستراتيجي" data-en="Strategic planning">التخطيط الاستراتيجي</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EXPERIENCE ================= -->
+<section id="work">
+  <div class="wrap">
+    <div class="rv">
+      <div class="eyebrow"><span data-ar="الخبرة العملية" data-en="Experience">الخبرة العملية</span></div>
+      <h2 class="t" data-ar="محللة نظم معلومات وأخصائية عمليات مالية" data-en="MIS Analyst &amp; Financial Operations Specialist">محللة نظم معلومات وأخصائية عمليات مالية</h2>
+      <p class="lead" data-ar="تصميم ستوديو — الخبر، المنطقة الشرقية · أكتوبر 2025 حتى الآن" data-en="Tasmeem Studio — Al-Khobar, Eastern Province · October 2025 – Present">تصميم ستوديو — الخبر، المنطقة الشرقية · أكتوبر 2025 حتى الآن</p>
+      <div class="nda">
+        <svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+        <span data-ar="جميع الأعمال أدناه موصوفة بالمنهجية ونوع المخرجات فقط. لا تُعرض أي بيانات أو أرقام أو مستندات تخص جهة العمل أو عملاءها التزامًا باتفاقية عدم الإفصاح." data-en="Everything below is described by methodology and deliverable type only. No employer or client data, figures, or documents are shown, in line with a signed non-disclosure agreement.">جميع الأعمال أدناه موصوفة بالمنهجية ونوع المخرجات فقط. لا تُعرض أي بيانات أو أرقام أو مستندات تخص جهة العمل أو عملاءها التزامًا باتفاقية عدم الإفصاح.</span>
+      </div>
+    </div>
+
+    <div class="work rv">
+
+      <article class="item">
+        <div class="viz"><svg viewBox="0 0 60 46"><path d="M4 40h52" stroke="rgba(238,240,252,.25)" stroke-width="1.2"/><rect x="8" y="28" width="8" height="12" rx="2" fill="#2F5BD6"/><rect x="20" y="21" width="8" height="19" rx="2" fill="#4A6EDD"/><rect x="32" y="14" width="8" height="26" rx="2" fill="#6B62E8"/><rect x="44" y="6" width="8" height="34" rx="2" fill="#8B6BF0"/></svg></div>
+        <div>
+          <h3 data-ar="تحسين الربحية والتسعير" data-en="Profitability &amp; pricing optimization">تحسين الربحية والتسعير</h3>
+          <p data-ar="رفع هامش الربحية المتوقع من 12% إلى 22.2% عبر التحليل المالي والتنبؤ وإعداد الموازنات وإعادة هيكلة التسعير عبر عدة وظائف تشغيلية." data-en="Lifted the projected profitability margin from 12% to 22.2% through financial analysis, forecasting, budgeting, and pricing restructuring across multiple business functions.">رفع هامش الربحية المتوقع من 12% إلى 22.2% عبر التحليل المالي والتنبؤ وإعداد الموازنات وإعادة هيكلة التسعير عبر عدة وظائف تشغيلية.</p>
+          <div class="tags"><span class="tag" data-ar="تحليل مالي" data-en="Financial analysis">تحليل مالي</span><span class="tag" data-ar="تسعير" data-en="Pricing">تسعير</span><span class="tag" data-ar="تحليل تكلفة" data-en="Cost analysis">تحليل تكلفة</span></div>
+        </div>
+      </article>
+
+      <article class="item">
+        <div class="viz"><svg viewBox="0 0 60 46"><path d="M6 34 L18 26 L30 30 L42 16 L54 10" stroke="#8B6BF0" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 34 L18 26 L30 30 L42 16 L54 10 L54 40 L6 40Z" fill="rgba(47,91,214,.22)"/><circle cx="54" cy="10" r="3" fill="#8B6BF0"/></svg></div>
+        <div>
+          <h3 data-ar="التخطيط المالي والاستثماري للمشاريع الكبرى" data-en="Financial &amp; investment planning for large-scale projects">التخطيط المالي والاستثماري للمشاريع الكبرى</h3>
+          <p data-ar="دعم التخطيط التشغيلي والمالي والاستراتيجي لمشاريع تتجاوز قيمتها 30 مليون ريال، شاملًا هيكلة سير العمل، والموازنات، والتوقعات، وإعداد مستندات الاستثمار ودراسات الجدوى." data-en="Supported operational, financial, and strategic planning for projects exceeding SAR 30M, covering workflow structuring, budgeting, forecasting, feasibility studies, and investment documentation.">دعم التخطيط التشغيلي والمالي والاستراتيجي لمشاريع تتجاوز قيمتها 30 مليون ريال، شاملًا هيكلة سير العمل، والموازنات، والتوقعات، وإعداد مستندات الاستثمار ودراسات الجدوى.</p>
+          <div class="tags"><span class="tag" data-ar="دراسات جدوى" data-en="Feasibility">دراسات جدوى</span><span class="tag" data-ar="تنبؤ مالي" data-en="Forecasting">تنبؤ مالي</span><span class="tag" data-ar="تحليل استثماري" data-en="Investment analysis">تحليل استثماري</span></div>
+        </div>
+      </article>
+
+      <article class="item">
+        <div class="viz"><svg viewBox="0 0 60 46"><circle cx="30" cy="10" r="5" fill="#8B6BF0"/><circle cx="12" cy="34" r="5" fill="#2F5BD6"/><circle cx="48" cy="34" r="5" fill="#2F5BD6"/><path d="M27 14 L15 30M33 14 L45 30M17 34h26" stroke="rgba(238,240,252,.4)" stroke-width="1.4"/></svg></div>
+        <div>
+          <h3 data-ar="تصميم وبناء أنظمة الأعمال من الصفر" data-en="End-to-end business systems built from scratch">تصميم وبناء أنظمة الأعمال من الصفر</h3>
+          <p data-ar="تصميم وتشغيل أنظمة تشغيلية ومالية وموارد بشرية متكاملة من نقطة الصفر، تغطي نماذج التنبؤ، وهياكل التسعير، وتتبع المشاريع، والعقود، ومراقبة الحضور." data-en="Designed and deployed integrated operational, financial, and HR systems from scratch, covering forecasting models, pricing structures, project tracking, contracts, and attendance monitoring.">تصميم وتشغيل أنظمة تشغيلية ومالية وموارد بشرية متكاملة من نقطة الصفر، تغطي نماذج التنبؤ، وهياكل التسعير، وتتبع المشاريع، والعقود، ومراقبة الحضور.</p>
+          <div class="tags"><span class="tag" data-ar="تحليل نظم" data-en="System analysis">تحليل نظم</span><span class="tag" data-ar="أتمتة العمليات" data-en="Process automation">أتمتة العمليات</span><span class="tag" data-ar="أنظمة موارد بشرية" data-en="HR systems">أنظمة موارد بشرية</span></div>
+        </div>
+      </article>
+
+      <article class="item">
+        <div class="viz"><svg viewBox="0 0 60 46"><rect x="6" y="6" width="22" height="16" rx="2.5" fill="rgba(47,91,214,.5)"/><rect x="32" y="6" width="22" height="16" rx="2.5" fill="rgba(139,107,240,.5)"/><rect x="6" y="26" width="22" height="14" rx="2.5" fill="rgba(139,107,240,.35)"/><rect x="32" y="26" width="22" height="14" rx="2.5" fill="rgba(47,91,214,.35)"/></svg></div>
+        <div>
+          <h3 data-ar="لوحات المتابعة وتقارير مؤشرات الأداء" data-en="Dashboards &amp; KPI reporting">لوحات المتابعة وتقارير مؤشرات الأداء</h3>
+          <p data-ar="إنتاج تقارير المتابعة المالية، وتفصيل التكاليف، وجداول تتبع الإيرادات، وتقارير مؤشرات الأداء التي تغذي قرارات الموازنة والتخطيط لدى الإدارة التنفيذية." data-en="Produced financial monitoring reports, cost breakdowns, revenue tracking sheets, and KPI reports that fed executive budgeting, planning, and decision-making.">إنتاج تقارير المتابعة المالية، وتفصيل التكاليف، وجداول تتبع الإيرادات، وتقارير مؤشرات الأداء التي تغذي قرارات الموازنة والتخطيط لدى الإدارة التنفيذية.</p>
+          <div class="tags"><span class="tag" data-ar="مؤشرات أداء" data-en="KPI reporting">مؤشرات أداء</span><span class="tag" data-ar="Excel متقدم" data-en="Advanced Excel">Excel متقدم</span><span class="tag" data-ar="تقارير إدارية" data-en="Management reporting">تقارير إدارية</span></div>
+        </div>
+      </article>
+
+      <article class="item">
+        <div class="viz"><svg viewBox="0 0 60 46"><rect x="12" y="4" width="30" height="34" rx="3" fill="rgba(47,91,214,.35)"/><rect x="16" y="8" width="30" height="34" rx="3" fill="rgba(139,107,240,.55)"/><path d="M22 18h18M22 24h18M22 30h11" stroke="rgba(238,240,252,.75)" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <div>
+          <h3 data-ar="توحيد المستندات المؤسسية" data-en="Corporate document standardization">توحيد المستندات المؤسسية</h3>
+          <p data-ar="توحيد أكثر من 80 مستندًا ونظامًا من المستندات التجارية والمالية والتشغيلية والإدارية، شاملًا الاتفاقيات والتقارير والقوالب وأنظمة التتبع، بمرجعية موحّدة بالعربية والإنجليزية." data-en="Standardized 80+ business, financial, operational, and administrative documents including agreements, reports, templates, and tracking systems, under one bilingual reference standard.">توحيد أكثر من 80 مستندًا ونظامًا من المستندات التجارية والمالية والتشغيلية والإدارية، شاملًا الاتفاقيات والتقارير والقوالب وأنظمة التتبع، بمرجعية موحّدة بالعربية والإنجليزية.</p>
+          <div class="tags"><span class="tag" data-ar="حوكمة مستندات" data-en="Document governance">حوكمة مستندات</span><span class="tag" data-ar="عقود واتفاقيات" data-en="Contracts">عقود واتفاقيات</span><span class="tag" data-ar="كتابة أعمال ثنائية اللغة" data-en="Bilingual business writing">كتابة أعمال ثنائية اللغة</span></div>
+        </div>
+      </article>
+
+      <article class="item">
+        <div class="viz"><svg viewBox="0 0 60 46"><rect x="8" y="8" width="44" height="30" rx="3" fill="none" stroke="rgba(238,240,252,.3)" stroke-width="1.4"/><path d="M8 16h44" stroke="rgba(238,240,252,.3)" stroke-width="1.4"/><circle cx="20" cy="26" r="4" fill="#2F5BD6"/><circle cx="30" cy="26" r="4" fill="#8B6BF0"/><circle cx="40" cy="26" r="4" fill="#2F5BD6"/></svg></div>
+        <div>
+          <h3 data-ar="مواد جمع التمويل والعروض الاستثمارية" data-en="Fundraising materials &amp; investor decks">مواد جمع التمويل والعروض الاستثمارية</h3>
+          <p data-ar="إعداد دراسات الجدوى وعروض المستثمرين والمقترحات التجارية الاستراتيجية الداعمة لمبادرات جمع التمويل والنمو، مع دعم الإدارة التنفيذية بالتحليل والتقارير والتنسيق التشغيلي." data-en="Prepared feasibility studies, investor pitch decks, and strategic business proposals supporting fundraising and growth initiatives, while supporting executive management through analysis, reporting, and operational coordination.">إعداد دراسات الجدوى وعروض المستثمرين والمقترحات التجارية الاستراتيجية الداعمة لمبادرات جمع التمويل والنمو، مع دعم الإدارة التنفيذية بالتحليل والتقارير والتنسيق التشغيلي.</p>
+          <div class="tags"><span class="tag" data-ar="عروض مستثمرين" data-en="Investor decks">عروض مستثمرين</span><span class="tag" data-ar="تخطيط استراتيجي" data-en="Strategic planning">تخطيط استراتيجي</span><span class="tag" data-ar="دعم تنفيذي" data-en="Executive support">دعم تنفيذي</span></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= EDUCATION ================= -->
+<section id="edu">
+  <div class="wrap rv">
+    <div class="eyebrow"><span data-ar="التعليم والمشاريع الأكاديمية" data-en="Education &amp; Academic Work">التعليم والمشاريع الأكاديمية</span></div>
+    <h2 class="t" data-ar="الأساس الأكاديمي" data-en="The academic foundation">الأساس الأكاديمي</h2>
+
+    <div class="edu">
+      <div class="card">
+        <div class="yr"><span class="num">2020 — 2025</span></div>
+        <h3 data-ar="بكالوريوس العلوم في نظم المعلومات الإدارية" data-en="B.Sc. in Management Information Systems">بكالوريوس العلوم في نظم المعلومات الإدارية</h3>
+        <p class="org" data-ar="كلية الجبيل الصناعية — الجبيل، المملكة العربية السعودية" data-en="Jubail Industrial College — Jubail, Saudi Arabia">كلية الجبيل الصناعية — الجبيل، المملكة العربية السعودية</p>
+        <p data-ar="تخرجت في أكتوبر 2025 بتقدير جيد جدًا ومعدل تراكمي 3.05 من 4.00." data-en="Graduated October 2025 with a Very Good grade and a GPA of 3.05 / 4.00.">تخرجت في أكتوبر 2025 بتقدير جيد جدًا ومعدل تراكمي 3.05 من 4.00.</p>
+      </div>
+
+      <div class="card">
+        <div class="yr"><span class="num">2025</span></div>
+        <h3 data-ar="مشروع التخرج — منصة FlatMate للسكن المشترك" data-en="Capstone Project — FlatMate Housing Platform">مشروع التخرج — منصة FlatMate للسكن المشترك</h3>
+        <p class="org" data-ar="تحليل نظم · تصميم قواعد بيانات · دورة حياة تطوير النظم" data-en="System analysis · Database design · Full SDLC">تحليل نظم · تصميم قواعد بيانات · دورة حياة تطوير النظم</p>
+        <p data-ar="تطوير منصة إلكترونية تربط الباحثين عن سكن مشترك في السعودية، بتطبيق دورة حياة تطوير النظم كاملة: جمع متطلبات الأعمال، تحليل النظام، تصميم سير العمل، وتصميم قاعدة البيانات (ERD)، مع تحليل السوق والمستخدم وتوثيق كامل للمشروع." data-en="Built a web platform matching roommates across Saudi Arabia, applying the full SDLC: business requirements gathering, system analysis, workflow design, and database design (ERD), alongside market and user analysis and complete project documentation.">تطوير منصة إلكترونية تربط الباحثين عن سكن مشترك في السعودية، بتطبيق دورة حياة تطوير النظم كاملة: جمع متطلبات الأعمال، تحليل النظام، تصميم سير العمل، وتصميم قاعدة البيانات (ERD)، مع تحليل السوق والمستخدم وتوثيق كامل للمشروع.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact">
+  <div class="wrap rv">
+    <div class="eyebrow"><span data-ar="تواصل" data-en="Contact">تواصل</span></div>
+    <h2 class="t" data-ar="مستعدة للفرصة القادمة" data-en="Open to the next opportunity">مستعدة للفرصة القادمة</h2>
+    <p class="lead" data-ar="أدوار في تحليل نظم المعلومات الإدارية، والتحليل المالي، وذكاء الأعمال — داخل المملكة أو عن بُعد." data-en="Roles in MIS analysis, financial analysis, and business intelligence — in Saudi Arabia or remote.">أدوار في تحليل نظم المعلومات الإدارية، والتحليل المالي، وذكاء الأعمال — داخل المملكة أو عن بُعد.</p>
+
+    <div class="cts">
+      <a class="ct" href="mailto:aryamalqahtani2@gmail.com"><span data-ar="البريد" data-en="Email">البريد</span><b>aryamalqahtani2@gmail.com</b></a>
+      <a class="ct" href="https://www.linkedin.com/in/aryam-a-b4a716222" target="_blank" rel="noopener"><span>LinkedIn</span><b>/in/aryam-a</b></a>
+      <a class="ct" href="https://wa.me/966508858228" target="_blank" rel="noopener"><span data-ar="واتساب" data-en="WhatsApp">واتساب</span><b>+966 50 885 8228</b></a>
+      <a class="ct" href="Aryam_Mosaed_CV.pdf" download><span data-ar="السيرة الذاتية" data-en="Curriculum Vitae">السيرة الذاتية</span><b data-ar="تحميل PDF" data-en="Download PDF">تحميل PDF</b></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot">
+    <span data-ar="أريام مساعد — نظم المعلومات الإدارية والعمليات المالية" data-en="Aryam Mosaed — Management Information Systems &amp; Financial Operations">أريام مساعد — نظم المعلومات الإدارية والعمليات المالية</span>
+    <span class="num">© 2026</span>
+  </div>
+</footer>
+
+<script>
+  var lang = "ar", btn = document.getElementById("langBtn");
+  btn.addEventListener("click", function(){
+    lang = (lang === "ar") ? "en" : "ar";
+    document.documentElement.lang = lang;
+    document.documentElement.dir = (lang === "ar") ? "rtl" : "ltr";
+    btn.textContent = (lang === "ar") ? "EN" : "ع";
+    document.querySelectorAll("[data-ar]").forEach(function(el){
+      var v = el.getAttribute("data-" + lang);
+      if (v !== null) el.innerHTML = v;
+    });
+  });
+
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } });
+  }, {threshold:.1, rootMargin:"0px 0px -40px 0px"});
+  document.querySelectorAll(".rv").forEach(function(el){ io.observe(el); });
+</script>
+</body>
+</html>
